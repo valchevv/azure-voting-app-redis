@@ -5,7 +5,18 @@ pipeline {
         stage('Verify branch') {
             steps {
                 echo "$GIT_BRANCH"
-                pwsh 'Write-Output "Hello PowerShell"'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                pwsh(script: 'docker images -a')
+                pwsh(script: """
+                cd azure-azure-vote/
+                docker images -a
+                docker build -t jenkins-pipeline .
+                docker images -a
+                cd ..
+                """)
             }
         }
     }
