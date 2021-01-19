@@ -12,8 +12,8 @@ pipeline {
                 sh 'docker images -a'
                 sh 'pwd'
                 sh 'cd azure-vote ; pwd'
-                /* sh 'docker build -t jenkins-pipeline .'
-                sh 'docker images -a ; cd ..' */
+                sh 'docker build -t jenkins-pipeline .'
+                sh 'docker images -a'
             }
         }
     }
