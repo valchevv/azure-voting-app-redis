@@ -9,14 +9,9 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                pwsh 'docker images -a')
-                pwsh """
-                cd azure-azure-vote/
-                docker images -a
-                docker build -t jenkins-pipeline .
-                docker images -a
-                cd ..
-                """)
+                sh docker images -a ; cd azure-azure-vote 
+                sh docker build -t jenkins-pipeline .
+                sh docker images -a ; cd ..
             }
         }
     }
