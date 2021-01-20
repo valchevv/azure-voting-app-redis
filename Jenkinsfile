@@ -62,5 +62,10 @@ pipeline {
               }
           }
       }
+      stage('Trivy scan') {
+         steps {
+            sh(script: 'trivy valchevv/jenkins-course')
+         }
+      }
    }
 }
