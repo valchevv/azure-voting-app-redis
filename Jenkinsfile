@@ -13,7 +13,7 @@ pipeline {
             sh(script: """
                cd azure-vote/
                docker images -a
-               docker build -t jenkins-pipeline .
+               docker build -t valchevv/jenkins-course:latest .
                docker images -a
                cd ..
             """)
@@ -55,7 +55,7 @@ pipeline {
               dir("$WORKSPACE/azure-vote") {
                   script {
                       docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
-                          def image = docker.build('blackdentech/jenkins-course:latest')
+                          def image = docker.build('docker push valchevv/jenkins-course:latest')
                           image.push()
                       }
                   }
