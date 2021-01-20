@@ -49,7 +49,7 @@ pipeline {
             """)
          }
       }
-            stage('Push container') {
+      stage('Push container') {
           steps {
               echo "Workspace is $WORKSPACE"
               dir("$WORKSPACE/azure-vote") {
