@@ -67,5 +67,10 @@ pipeline {
             sh(script: 'trivy valchevv/jenkins-course')
          }
       }
+      stage('Anchor scan') {
+         steps {
+            sh(script: 'anchore-cli --url http://localhost:8228/v1 system status')
+         }
+      }
    }
 }
