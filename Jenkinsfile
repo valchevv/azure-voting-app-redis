@@ -2,7 +2,7 @@ pipeline {
    agent any
 
    stages {
-
+      
       stage('Anchor scan') {
          steps {
 /*             anchore engineCredentialsId: 'Anchor', engineurl: 'http://localhost:8228/v1', name: 'anchore_images' */
