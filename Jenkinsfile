@@ -7,12 +7,15 @@ pipeline {
          }
          steps {
             echo "Deploying to ${ENVIRONMENT}"
+            
             acsDeploy(
-               azureCredentialsId: "nls-jenkins",
-               configFilePaths: "**/*.yaml",
-               containerService: "k8s-${ENVIRONMENT}-cluster | AKS",
-               resourceGroupName: "main-rg",
-               sshCredentialsId: ""
+                azureCredentialsId: 'nls-jenkins',
+                 configFilePaths: '**/*.yaml',
+                  containerService: 'k8s-demo-cluster | AKS',
+                   dcosDockerCredentialsPath: '',
+                    resourceGroupName: 'main-rg',
+                     secretName: '',
+                      sshCredentialsId: ''
             )
          }
       }
@@ -45,11 +48,13 @@ pipeline {
          steps {
             echo message: "Deploying to ${ENVIRONMENT}"
             acsDeploy(
-               azureCredentialsId: "nls-jenkins",
-               configFilePaths: "**/*.yaml",
-               containerService: "k8s-${ENVIRONMENT}-cluster | AKS",
-               resourceGroupName: "main-rg",
-               sshCredentialsId: ""
+                azureCredentialsId: 'nls-jenkins', 
+                configFilePaths: '**/*.yaml', 
+                containerService: 'k8s-prod-cluster | AKS', 
+                dcosDockerCredentialsPath: '', 
+                resourceGroupName: 'main-rg', 
+                secretName: '', 
+                sshCredentialsId: ''
             )
          }
       } 
