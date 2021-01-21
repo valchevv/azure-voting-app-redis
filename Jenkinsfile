@@ -35,7 +35,7 @@ pipeline {
             }
          }
       }
-      stage name: "Deploy to prod",  body: {
+      stage("Deploy to prod")  {
          when {
             branch 'master'
          }
