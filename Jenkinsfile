@@ -12,7 +12,7 @@ pipeline {
                configFilePaths: "**/*.yaml",
                containerService: "k8s-${ENVIRONMENT}-cluster | AKS",
                resourceGroupName: "main-rg",
-               sshCredentials: ""
+               sshCredentialsId: ""
             )
          }
       }
