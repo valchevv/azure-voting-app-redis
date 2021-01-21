@@ -45,7 +45,7 @@ pipeline {
          steps {
             echo message: "Deploying to ${ENVIRONMENT}"
             acsDeploy(
-               azureCredentialsID: "azure-jenkins-app",
+               azureCredentialsId: "azure-jenkins-app",
                configFilePaths: "**/*.yaml",
                containerService: "k8s-${ENVIRONMENT}-cluster | AKS",
                resourceGroupName: "main-rg",
