@@ -6,7 +6,7 @@ pipeline {
          steps {
             echo "$GIT_BRANCH"
          }
-/*       }
+       }
       stage('Docker Build') {
          steps {
             sh(script: 'docker images -a')
@@ -61,18 +61,18 @@ pipeline {
                   }
               }
           }
-      } */
+      }
       stage('Trivy scan') {
          steps {
             sh(script: 'trivy valchevv/jenkins-course')
          }
       }
-    stage('Analyze with Anchore plugin') {
-      steps {
-        echo 'valchevv/jenkins-course' > anchore_images
-        anchore engineCredentialsId: 'Anchor', engineurl: 'http://localhost:8228/v1', name: 'anchore_images'
-        /*writeFile file: 'anchore_images', text: imageLine
-        anchore name: 'anchore_images' */
+      stage('Analyze with Anchore plugin') {
+         steps {
+         echo 'valchevv/jenkins-course' > anchore_images
+         anchore engineCredentialsId: 'Anchor', engineurl: 'http://localhost:8228/v1', name: 'anchore_images'
+         /*writeFile file: 'anchore_images', text: imageLine
+         anchore name: 'anchore_images' */
       }
     }
    }
